@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="stylesheet" type="text/css" href="../static/base.css">
+<body>
+    <div class="header">
+        <div class="row">
+            <img src="../static/images.png" width="350px" height="100px">
+            <div class="text-center">ARBITRES APP</div>
+            <div class="text-right-before-header"><a href="/Registration" class="button">Registrarse</a></div>
+             {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a> Logged in as {{ user }}</a></li>
+                    <div class="text-right-header"><a href="{% url 'logout' %}?next={{request.path}}" class="button"> Logout </a></div>
+
+                </ul>
+
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="text-right-header"><a href="{% url 'login' %}?next={{request.path}}" class="button">LogIn</a></div>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+    <div class="content">
+        <a href="/videos">Llista de videos</a>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-75">Universitat de Lleida</div>
+            <div class="col-50">Plaça de Víctor Siurana, 1, 25003 Lleida</div>
+        </div>
+    </div>
+</body>
+</html>
