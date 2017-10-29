@@ -1,0 +1,48 @@
+.body{
+    height: 297mm;
+}
+.header {
+    margin-left: 20px;
+}
+
+.row {
+    margin-top: 20px;
+}
+.text-center {
+    margin-top:-80px;
+    text-align: center;
+    font-size: 40px;
+}
+.text-right-header{
+    margin-top:-42px;
+    text-align: right;
+    margin-right: 100px;
+}
+.text-right-before-header{
+    margin-top:-40px;
+    text-align: right;
+    margin-right: 300px;
+}
+.footer{
+    margin-top:500px;
+}
+.col-75{
+    margin-left: 150px;
+    width: 25%;
+}
+.col-50{
+    margin-left: 175px;
+    width: 50%;
+}
+.content{
+    margin-left:30px;
+    margin-top:50px;
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: blue;
+}

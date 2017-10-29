@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.core.files import File
 from django.shortcuts import render
 
 import json
@@ -15,7 +16,7 @@ from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
 
 from forms import UserForm
-from models import UserProfile
+import models
 
 @csrf_exempt
 def register(request):
@@ -67,3 +68,12 @@ def register(request):
 def homepage(request):
     context = RequestContext(request)
     return render_to_response("homepage.html",{}, context)
+
+def list_videos(request):
+    l = []
+    context = RequestContext(request)
+    file_to_save = open('/home/antonio/PycharmProjects/TFG/arbitrosApp/static/images.png', 'rb').read()
+    video = models.Videos(video=File(file_to_save))
+    video.save()
+
+    return render(request, "list_videos.html", {'video':video})
