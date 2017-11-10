@@ -69,11 +69,16 @@ def homepage(request):
     context = RequestContext(request)
     return render_to_response("homepage.html",{}, context)
 
-def list_videos(request):
-    l = []
-    context = RequestContext(request)
-    file_to_save = open('/home/antonio/PycharmProjects/TFG/arbitrosApp/static/images.png', 'rb').read()
+def save_videos():
+    file_to_save = open('/home/antonio/PycharmProjects/TFG/arbitrosApp/static/FU17WWC14-M1-CRC-VEN-8.swf', 'rb').read()
     video = models.Videos(video=File(file_to_save))
     video.save()
 
-    return render(request, "list_videos.html", {'video':video})
+def list_videos(request):
+    l=[]
+    save_videos()
+    a = len(models.Videos.objects.all())
+    for i in models.Videos.objects.all():
+        l.append(i)
+
+    return render(request, "list_videos.html", {'video': l, 'a':a})
