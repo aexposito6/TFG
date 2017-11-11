@@ -19,4 +19,6 @@ class UserProfile(models.Model):
         return self.user.username
 
 class Videos(models.Model):
+    path = models.TextField(default='.')
     video = models.FileField()
+    name = models.TextField(default='a')
